@@ -6,6 +6,7 @@ This code is designed to study and understand the basics of data types in the C 
 
 ## Author
 **Developer:** Merunthicha (Wanvisa Phumam)
+
 **Telegram:** [@Merunthicha](https://t.me/Merunthicha)
 
 ---
