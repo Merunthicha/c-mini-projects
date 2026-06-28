@@ -1,38 +1,38 @@
-# เครื่องคิดเลขอย่างง่าย (Simple Calculator)
+# Simple Calculator
 
-โปรแกรมเครื่องคิดเลขแบบ command-line เขียนด้วยภาษา C รองรับการคำนวณพื้นฐานหลายอย่าง ทำงานผ่านระบบเมนูให้ผู้ใช้เลือก
+A command-line calculator program written in C. It supports several basic operations through an interactive menu.
 
-## คุณสมบัติ (Features)
+## Features
 
-- **บวก (Addition)** — บวกเลขได้หลายตัวต่อเนื่องกัน
-- **ลบ (Subtraction)** — ลบเลขได้หลายตัวต่อเนื่องกัน
-- **คูณ (Multiplication)** — คูณเลขได้หลายตัวต่อเนื่องกัน
-- **หาร (Division)** — หารเลขได้หลายตัวต่อเนื่องกัน
-- **ตรีโกณมิติ (sin / cos / tan)** — คำนวณค่าจากองศาที่ป้อน
-- **แฟกทอเรียล (Factorial)** — คำนวณ n! ได้ต่อเนื่องหลายค่า
+- **Addition** — add multiple numbers in a row
+- **Subtraction** — subtract multiple numbers in a row
+- **Multiplication** — multiply multiple numbers in a row
+- **Division** — divide multiple numbers in a row
+- **Trigonometry (sin / cos / tan)** — compute values from an angle in degrees
+- **Factorial** — compute n! for multiple values in a row
 
-## ความต้องการของระบบ (Requirements)
+## Requirements
 
-- คอมไพเลอร์ภาษา C เช่น `gcc`
-- ไลบรารีคณิตศาสตร์ `math.h` (ต้อง link ด้วย `-lm` ตอนคอมไพล์)
+- A C compiler such as `gcc`
+- The math library `math.h` (must be linked with `-lm` when compiling)
 
-## การคอมไพล์ (Compile)
+## Compile
 
 ```bash
 gcc calculator.c -o calculator -lm
 ```
 
-> หมายเหตุ: ต้องใส่ `-lm` เพื่อ link ไลบรารีคณิตศาสตร์ ไม่เช่นนั้นฟังก์ชัน `sin`, `cos`, `tan` จะคอมไพล์ไม่ผ่าน
+> Note: You must include `-lm` to link the math library, otherwise `sin`, `cos`, and `tan` will fail to compile.
 
-## การใช้งาน (Usage)
+## Usage
 
-รันโปรแกรม:
+Run the program:
 
 ```bash
 ./calculator
 ```
 
-จากนั้นจะเห็นเมนูหลัก:
+You'll see the main menu:
 
 ```
 =====================================================
@@ -45,13 +45,13 @@ gcc calculator.c -o calculator -lm
 =====================================================
 ```
 
-พิมพ์ตัวเลขเมนูที่ต้องการแล้วกด Enter
+Type the number of the menu item you want and press Enter.
 
-### การบวก / ลบ / คูณ / หาร
+### Addition / Subtraction / Multiplication / Division
 
-ป้อนตัวเลขทีละตัว แล้วพิมพ์ `=` หรือ `exit` เพื่อจบและดูผลลัพธ์
+Enter one number at a time, then type `=` or `exit` to finish and see the result.
 
-ตัวอย่างการบวก:
+Addition example:
 
 ```
 > 10
@@ -63,7 +63,7 @@ Result: 35.0000
 
 ### sin / cos / tan
 
-เลือกฟังก์ชัน (1 = sin, 2 = cos, 3 = tan) แล้วป้อนค่าเป็น **องศา** โปรแกรมจะแปลงเป็นเรเดียนให้อัตโนมัติ
+Choose a function (1 = sin, 2 = cos, 3 = tan), then enter the value in **degrees**. The program converts it to radians automatically.
 
 ```
 [1] sin | [2] cos | [3] tan
@@ -72,9 +72,9 @@ Enter your degree: 30
 sin(30.0000) = 0.5000
 ```
 
-### แฟกทอเรียล (Factorial)
+### Factorial
 
-ป้อนตัวเลขเพื่อหาค่า n! ป้อนต่อได้เรื่อย ๆ พิมพ์ `exit` เพื่อหยุด
+Enter a number to compute n!. You can keep entering numbers; type `exit` to stop.
 
 ```
 factorial of 5
@@ -82,29 +82,29 @@ factorial of 5
 factorial of exit
 ```
 
-## โครงสร้างโค้ด (Code Structure)
+## Code Structure
 
-| ฟังก์ชัน | หน้าที่ |
+| Function | Purpose |
 |---|---|
-| `showCalculatorMenu()` | แสดงเมนูหลัก |
-| `showSinCosTanMenu()` | แสดงเมนูตรีโกณมิติ |
-| `addition()` | คำนวณการบวก |
-| `subtraction()` | คำนวณการลบ |
-| `multiplication()` | คำนวณการคูณ |
-| `division()` | คำนวณการหาร |
-| `sinCosTan()` | คำนวณ sin / cos / tan |
-| `factorial()` | คำนวณแฟกทอเรียล |
-| `main()` | จุดเริ่มต้น แสดงเมนูและเรียกฟังก์ชันตามที่เลือก |
+| `showCalculatorMenu()` | Display the main menu |
+| `showSinCosTanMenu()` | Display the trigonometry menu |
+| `addition()` | Perform addition |
+| `subtraction()` | Perform subtraction |
+| `multiplication()` | Perform multiplication |
+| `division()` | Perform division |
+| `sinCosTan()` | Compute sin / cos / tan |
+| `factorial()` | Compute factorial |
+| `main()` | Entry point; shows the menu and calls the selected function |
 
-## ข้อควรปรับปรุง (Known Issues / Notes)
+## Known Issues / Notes
 
-โค้ดทำงานได้ แต่มีจุดที่ควรแก้เพื่อความถูกต้องและความปลอดภัย:
+The code works, but a few things should be fixed for correctness and safety:
 
-1. **ตัวแปร `result` ไม่ได้กำหนดค่าเริ่มต้นในฟังก์ชัน `addition()`** — ควรเริ่มต้นเป็น `double result = 0;` ไม่เช่นนั้นผลบวกอาจผิดเพราะใช้ค่าขยะ (garbage value)
-2. **ใช้ `|` (bitwise OR) แทน `||` (logical OR)** ในการเปรียบเทียบเงื่อนไข เช่น `strcmp(...) == 0 | strcmp(...) == 0` — ควรเปลี่ยนเป็น `||` เพื่อให้เป็น logical OR ที่ถูกต้อง
-3. **ยังไม่มีการตรวจสอบการหารด้วยศูนย์** ในฟังก์ชัน `division()`
-4. **แฟกทอเรียลใช้ `atof` และวนลูปด้วยทศนิยม** — เหมาะกับจำนวนเต็มมากกว่า อาจเปลี่ยนไปใช้ `atoi` และตรวจสอบค่าติดลบ
+1. **The `result` variable is not initialized in `addition()`** — it should start as `double result = 0;`, otherwise the sum may be wrong because it uses a garbage value.
+2. **`|` (bitwise OR) is used instead of `||` (logical OR)** in the condition checks, e.g. `strcmp(...) == 0 | strcmp(...) == 0` — this should be `||` for correct logical OR behavior.
+3. **No division-by-zero check** in the `division()` function.
+4. **Factorial uses `atof` and loops with a floating-point value** — an integer would be more appropriate; consider using `atoi` and validating for negative input.
 
 ## License
 
-ระบุ license ตามที่ต้องการ (เช่น MIT) หรือลบหัวข้อนี้ออกได้
+Add a license as you see fit (e.g. MIT), or remove this section.
